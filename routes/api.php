@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1', 'namespace' => 'Api\Version1'], function () {
+    Route::put('/users/{user}/companies', 'UserController@attachCompanies');
     Route::resource('users', 'UserController');
+    Route::put('/companies/{company}/users', 'CompanyController@attachUsers');
     Route::resource('companies', 'CompanyController');
 });

@@ -105,6 +105,26 @@ final class CompanyController extends Controller
     }
 
     /**
+     * Attach companies to the user
+     *
+     * @param $id
+     * @param Request $request
+     * @return CompanyResource
+     * @throws \Illuminate\Validation\ValidationException
+     *
+     * @bodyParam users array required
+     * @responseFile responses/companies.show.json
+     */
+    public function attachUsers($id, Request $request)
+    {
+        $this->validate($request, ['users' => 'required|array|exists:users,id']);
+        $company = Company::query()->findOrFail($id);
+        $company->users()->sync($request->input('users'));
+
+        return new CompanyResource($company);
+    }
+    
+    /**
      * @param Request $request
      * @throws \Illuminate\Validation\ValidationException
      */
