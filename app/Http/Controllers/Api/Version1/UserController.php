@@ -21,10 +21,11 @@ final class UserController extends Controller
      * Display a listing of the users.
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @responseFile responses/users.index.json
      */
     public function index()
     {
-        return UserResource::collection(User::with('companies')->paginate());
+        return UserResource::collection(User::with('companies')->paginate(1));
     }
 
     /**
@@ -37,6 +38,7 @@ final class UserController extends Controller
      *
      * @bodyParam name string required
      * @bodyParam companies array
+     * @responseFile responses/users.show.json
      */
     public function store(Request $request)
     {
@@ -54,6 +56,7 @@ final class UserController extends Controller
      *
      * @param  int  $id
      * @return UserResource
+     * @responseFile responses/users.show.json
      */
     public function show($id)
     {
@@ -72,6 +75,7 @@ final class UserController extends Controller
      *
      * @bodyParam name string required
      * @bodyParam companies array
+     * @responseFile responses/users.show.json
      */
     public function update(Request $request, $id)
     {
@@ -90,6 +94,7 @@ final class UserController extends Controller
      * @param  int $id
      * @return UserResource
      * @throws \Exception
+     * @responseFile responses/users.show.json
      */
     public function destroy($id)
     {

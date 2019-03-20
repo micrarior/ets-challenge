@@ -21,6 +21,7 @@ final class CompanyController extends Controller
      * Display a listing of the companies.
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @responseFile responses/companies.index.json
      */
     public function index()
     {
@@ -37,6 +38,7 @@ final class CompanyController extends Controller
      *
      * @bodyParam name string required
      * @bodyParam users array
+     * @responseFile responses/companies.show.json
      */
     public function store(Request $request)
     {
@@ -54,6 +56,7 @@ final class CompanyController extends Controller
      *
      * @param  int  $id
      * @return CompanyResource
+     * @responseFile responses/companies.show.json
      */
     public function show($id)
     {
@@ -72,6 +75,7 @@ final class CompanyController extends Controller
      *
      * @bodyParam name string required
      * @bodyParam users array
+     * @responseFile responses/companies.show.json
      */
     public function update(Request $request, $id)
     {
@@ -90,6 +94,7 @@ final class CompanyController extends Controller
      * @param  int $id
      * @return CompanyResource
      * @throws \Exception
+     * @responseFile responses/companies.show.json
      */
     public function destroy($id)
     {
