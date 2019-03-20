@@ -7,10 +7,18 @@ use App\Http\Resources\User as UserResource;
 use App\User;
 use Illuminate\Http\Request;
 
+/**
+ * Class UserController
+ * @package App\Http\Controllers\Api\Version1
+ *
+ * @group User management
+ *
+ * APIs for managing users
+ */
 final class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the users.
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
@@ -20,12 +28,15 @@ final class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created user in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
      * @throws \Throwable
+     *
+     * @bodyParam name string required
+     * @bodyParam companies array
      */
     public function store(Request $request)
     {
@@ -39,7 +50,7 @@ final class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user.
      *
      * @param  int  $id
      * @return UserResource
@@ -51,13 +62,16 @@ final class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
      * @return UserResource
      * @throws \Illuminate\Validation\ValidationException
      * @throws \Throwable
+     *
+     * @bodyParam name string required
+     * @bodyParam companies array
      */
     public function update(Request $request, $id)
     {
