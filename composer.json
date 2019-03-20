@@ -54,6 +54,15 @@
         ],
         "test": [
             "@php vendor/phpunit/phpunit/phpunit"
+        ],
+        "app-install": [
+            "@composer install",
+            "@php artisan migrate --seed",
+            "@composer test",
+            "@php artisan apidoc:generate"
+        ],
+        "app-run": [
+            "@php artisan serve"
         ]
     },
     "config": {
