@@ -19,7 +19,7 @@ class Company extends JsonResource
             'name' => $this->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'users' => User::collection($this->users),
+            'users' => User::collection($this->whenLoaded('users')),
         ];
     }
 }

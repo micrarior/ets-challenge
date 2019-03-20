@@ -6,8 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class User extends JsonResource
 {
-    public $preserveKeys = true;
-
     /**
      * Transform the resource into an array.
      *
@@ -21,7 +19,7 @@ class User extends JsonResource
             'name' => $this->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'companies' => Company::collection($this->companies),
+            'companies' => Company::collection($this->whenLoaded('companies')),
         ];
     }
 }
