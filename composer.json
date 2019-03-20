@@ -63,7 +63,7 @@
         "app-dev-run": [
             "@php artisan migrate:refresh --seed",
             "@composer test",
-            "@php artisan apidoc:rebuild",
+            "@php artisan apidoc:generate",
             "@php artisan serve"
         ]
     },
