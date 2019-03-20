@@ -19,7 +19,7 @@ return [
         /*
          * Specify whether the Postman collection should be generated.
          */
-        'enabled' => true,
+        'enabled' => false,
 
         /*
          * The name for the exported Postman collection. Default: config('app.name')." API"
@@ -110,7 +110,7 @@ return [
                      * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
                      * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.
                      */
-                    'methods' => ['GET'],
+                    'methods' => [],
 
                     /*
                      * For URLs which have parameters (/users/{user}, /orders/{id?}),
@@ -118,7 +118,8 @@ return [
                      * Note that you must specify the full parameter, including curly brackets and question marks if any.
                      */
                     'bindings' => [
-                        // '{user}' => 1
+                        '{user}' => 1,
+                        '{company}' => 1,
                     ],
 
                     /*
