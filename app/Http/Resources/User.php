@@ -21,6 +21,7 @@ class User extends JsonResource
             'name' => $this->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'companies' => Company::collection($this->companies),
         ];
     }
 }
